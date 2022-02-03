@@ -14,6 +14,14 @@ const GlobalStyles = createGlobalStyle`
         font-family: 'Barlow Condensed', sans-serif;
     }
 
+    input, button, textarea {
+        font-family: 'Barlow Condensed', sans-serif;
+
+        &::placeholder {
+            font-family: 'Barlow Condensed', sans-serif;
+        }
+    }
+
 `;
 
 export default GlobalStyles;

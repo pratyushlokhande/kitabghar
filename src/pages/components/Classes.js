@@ -20,7 +20,7 @@ const Classes = () => {
 
 
     return (
-      <ClassesContainer>
+      <ClassesContainer layout>
         <TitleContainer>
           <h1>Grades Covered</h1>
           <h3>A Building with Four Walls and Tomorrow Inside</h3>
@@ -29,10 +29,9 @@ const Classes = () => {
         <AllClasses
           modules={[Autoplay]}
           spaceBetween={16}
-          slidesPerView={5}
+          slidesPerView={window.innerWidth > 768 ? 5 : 1}
           autoplay={{
             delay: 2500,
-            disableOnInteraction: false,
           }}
           loop={true}
         >
@@ -59,6 +58,10 @@ const ClassesContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `;
 
 const TitleContainer = styled(motion.div)`
@@ -67,6 +70,7 @@ const TitleContainer = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   h1 {
     font-size: 3rem;
@@ -78,6 +82,16 @@ const TitleContainer = styled(motion.div)`
     font-weight: 400;
     color: #f08d0c;
     text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
   }
 `;
 

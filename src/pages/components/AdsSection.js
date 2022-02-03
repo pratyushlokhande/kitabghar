@@ -6,15 +6,21 @@ import { motion } from 'framer-motion';
 
 const AdsSection = () => {
     return (
-        <AdsSectionContainer>
-            <ImageContainer>
-                {/* <img src={"//unsplash.it/720/480?1"} alt={"img"} /> */}
-            </ImageContainer>
-            <ImageContainer>
-                {/* <img src={"//unsplash.it/720/480?2"} alt={"img"} /> */}
-            </ImageContainer>
-        </AdsSectionContainer>
-    )
+      <AdsSectionContainer layout>
+        <ImageContainer>
+          <img
+            src={require("../../assets/Ads/ad-one.jpg")}
+            alt={"ad-one.jpg"}
+          />
+        </ImageContainer>
+        <ImageContainer>
+          <img
+            src={require("../../assets/Ads/ad-one.jpg")}
+            alt={"ad-one.jpg"}
+          />
+        </ImageContainer>
+      </AdsSectionContainer>
+    );
 }
 
 const AdsSectionContainer = styled(motion.div)`
@@ -23,27 +29,26 @@ const AdsSectionContainer = styled(motion.div)`
     margin-top: 5rem;
     display: flex;
     gap: 1rem;
-    
-    img {
-        flex: 1;
-        object-fit: cover;
-        object-position: center;
+
+    @media screen and (max-width: 768px) {
+        padding: 0 1rem;
+        flex-direction: column;
     }
 `;
 
 const ImageContainer = styled(motion.div)`
   flex: 1;
-  aspect-ratio: 4/3;
+  /* aspect-ratio: 16/9; */
   &:first-child {
-    background-color: #b0f47a;
+    background-color: #ffffff;
   }
 
   &:last-child {
-    background-color: #b789f2;
+    background-color: #ffffff;
   }
   img {
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
   }
 `;

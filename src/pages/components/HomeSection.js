@@ -6,12 +6,11 @@ import { motion } from 'framer-motion';
 
 const HomeSection = () => {
     return (
-      <HomeSectionContainer>
+      <HomeSectionContainer layout>
         <TitleContainer>
           <h1>PAY LESS STUDY MORE</h1>
-          <Title>
-            KITABGHAR
-          </Title>
+          <Title>KITABGHAR</Title>
+          <h2>अब पढ़ाई, सिर्फ 20% में</h2>
         </TitleContainer>
         <ButtonContainer>
           <Button>BUY</Button>
@@ -33,16 +32,20 @@ const HomeSectionContainer = styled(motion.div)`
 `;
 
 const TitleContainer = styled(motion.div)`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    h1 {
-        font-size: 2rem;
-        color: #f08d0c;
+  h1 {
+    font-size: 2rem;
+    color: #f08d0c;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
     }
+  }
 `;
 
 const Title = styled(motion.div)`
@@ -52,11 +55,19 @@ const Title = styled(motion.div)`
     font-weight: 500;
     color: #ffffff;
     text-shadow: 9px 12px 7px rgba(0, 0, 0, 0.25);
+
+    @media screen and (max-width: 768px) {
+        font-size: 5rem; 
+    }
 `;
 
 const ButtonContainer = styled(motion.div)`
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Button = styled(motion.a)`

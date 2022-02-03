@@ -33,7 +33,7 @@ const NewArrivals = () => {
     }
 
   return (
-    <NewArrivalsContainer>
+    <NewArrivalsContainer layout>
       <TitleContainer>
         <h1>New Arrivals</h1>
         <h3>A Building with Four Walls and Tomorrow Inside</h3>
@@ -64,6 +64,10 @@ const NewArrivalsContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `;
 
 const TitleContainer = styled(motion.div)`
@@ -72,7 +76,8 @@ const TitleContainer = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  text-align: center;
+  
   h1 {
     font-size: 3rem;
     font-weight: 600;
@@ -83,6 +88,16 @@ const TitleContainer = styled(motion.div)`
     font-weight: 400;
     color: #f08d0c;
     text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
   }
 `;
 
