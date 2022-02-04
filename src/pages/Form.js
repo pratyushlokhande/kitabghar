@@ -5,16 +5,15 @@ import { motion, AnimateSharedLayout } from "framer-motion";
 
 // Components
 import FormHome from "./components/FormHome";
+import FormContainer from "./components/FormContainer";
 
-// import Form Components
-import BuySell from "./components/FormComponents/BuySell";
 
 const Form = () => {
     return (
         <AnimateSharedLayout>
             <motion.div layout>
                 <FormHome />
-                <BuySell />
+                <FormContainer />
             </motion.div>
         </AnimateSharedLayout>
     )

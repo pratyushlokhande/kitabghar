@@ -57,24 +57,5 @@ const Title = styled(motion.div)`
   }
 `;
 
-const ButtonContainer = styled(motion.div)`
-  display: flex;
-  gap: 1rem;
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-const Button = styled(motion.a)`
-  width: 10rem;
-  height: 2.5rem;
-  background-color: #f08d0c;
-  color: #000000;
-  display: grid;
-  place-items: center;
-  font-size: 1.8rem;
-  font-weight: 500;
-`;
 
 export default FormHome;

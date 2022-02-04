@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
         font-family: 'Barlow Condensed', sans-serif;
     }
 
-    input, button, textarea {
+    input, button, textarea, select {
         font-family: 'Barlow Condensed', sans-serif;
 
         &::placeholder {
