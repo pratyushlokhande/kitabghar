@@ -2,15 +2,44 @@ import React from "react";
 
 // Style and Animation
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, useIsPresent } from "framer-motion";
 
 const FormHome = () => {
+
+  const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
+  const isPresent = useIsPresent();
+
   return (
-    <FormHomeContainer layout>
-      <TitleContainer>
-        <h1>PAY LESS STUDY MORE</h1>
+    <FormHomeContainer
+      initial={{ height: "100vh" }}
+      animate={{ height: "60vh" }}
+      exit={{ height: "100vh" }}
+      transition={{ ...transition, delay: isPresent ? 0 : 0.6 }}
+      layout
+    >
+      <TitleContainer
+        initial={{ marginTop: "0rem" }}
+        animate={{ marginTop: "2.5rem" }}
+        exit={{ marginTop: "0rem" }}
+        transition={{ ...transition, delay: isPresent ? 0 : 0.6 }}
+      >
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ ...transition, delay: isPresent ? 0.6 : 0 }}
+        >
+          PAY LESS STUDY MORE
+        </motion.h1>
         <Title>KITABGHAR</Title>
-        <h2>अब पढ़ाई, सिर्फ 20% में</h2>
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ ...transition, delay: isPresent ? 0.6 : 0 }}
+        >
+          अब पढ़ाई, सिर्फ 20% में
+        </motion.h2>
       </TitleContainer>
     </FormHomeContainer>
   );

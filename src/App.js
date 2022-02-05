@@ -8,24 +8,27 @@ import Form from "./pages/Form";
 import Footer from "./pages/components/Footer";
 
 // Import Router
-import { Routes, Route } from "react-router-dom";
+import {  Routes, Route, useLocation } from "react-router-dom";
 
 // Animation
 import {AnimatePresence} from 'framer-motion';
 
 function App() {
+
+  const location = useLocation();
+
   return (
-    <div className="App">
+    <>
       <GlobalStyles />
       <Nav />
       <AnimatePresence initial={false} exitBeforeEnter>
-        <Routes>
+        <Routes location={location} key={location.key}> 
           <Route exact path="/" element={<Home />} />
           <Route exact path="/form" element={<Form />} />
         </Routes>
       </AnimatePresence>
       <Footer />
-    </div>
+    </>
   );
 }
 
