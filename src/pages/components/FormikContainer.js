@@ -12,39 +12,45 @@ import FormikControl from './FormikControl';
 // Router
 import { useLocation } from 'react-router-dom';
 
+// Firebase
+import AddData from "../../firebase/firebase-addData";
 
 const FormikContainer = () => {
 
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
 
-    const radioOptions = [
+    const buySellOptions = [
       { key: "Buy", value: "buy" },
       { key: "Sell", value: "sell" },
     ];
 
     const gradeOptions = [
-        { key: '--Select--', value: '' },
-        { key: 'Option 1', value: 'goption1' },
-        { key: 'Option 2', value: 'goption2' },
-        { key: 'Option 3', value: 'goption3' },
+      { key: "--Select--", value: "" },
+      { key: "Class 6", value: "class-6" },
+      { key: "Class 7", value: "class-7" },
+      { key: "Class 8", value: "class-8" },
+      { key: "Class 9", value: "class-9" },
+      { key: "Class 10", value: "class-10" },
+      { key: "Class 11", value: "class-11" },
+      { key: "Class 12", value: "class-12" },
     ];
     const typeOptions = [
-        { key: '--Select--', value: '' },
-        { key: 'Option 1', value: 'toption1' },
-        { key: 'Option 2', value: 'toption2' },
-        { key: 'Option 3', value: 'toption3' },
+      { key: "--Select--", value: "" },
+      { key: "All", value: "all" },
+      { key: "NCERT", value: "ncert" },
+      { key: "Reference Books", value: "reference" },
+      { key: "Competitive Books", value: "competitive" },
     ];
-    const checkboxOptions = [
-        { key: 'Option 0', value: 'coption0' },
-        { key: 'Option 1', value: 'coption1' },
-        { key: 'Option 2', value: 'coption2' },
-        { key: 'Option 3', value: 'coption3' },
-        { key: 'Option 4', value: 'coption4' },
-        { key: 'Option 5', value: 'coption5' },
-        { key: 'Option 6', value: 'coption6' },
-        { key: 'Option 7', value: 'coption7' },
-        { key: 'Option 8', value: 'coption8' },
+    const bookOptions = [
+      { key: "Math NCERT", value: "math-ncert" },
+      { key: "Science Competitive", value: "science-competitive" },
+      { key: "English NCERT", value: "english-ncert" },
+      { key: "Hindi NCERT", value: "Hindi-ncert" },
+      { key: "Aptitude Competitive", value: "aptitude-competitive" },
+      { key: "S Chand Reference", value: "Science Reference" },
+      { key: "SST XamIdea Reference", value: "xamidea-reference" },
+      { key: "Computer Competitive", value: "computer-competitive" },
     ];
 
     const initialValues = {
@@ -82,7 +88,24 @@ const FormikContainer = () => {
       selectType: Yup.string().required("Required"),
       books: Yup.array().min(1,"Select atleast one Book"),
     });
-    const onSubmit = values => console.log(values);
+    const onSubmit = (values, {resetForm}) => {
+      const address = `${values.house} ${values.street} ${values.landmark} ${values.city}`;
+      const data = {
+        database: "form-entries",
+        mode: values.buySell,
+        name: values.name,
+        phone: values.phone,
+        address: address,
+        books: values.books,
+        amount: values.price,
+        class: values.selectGrade,
+        type: values.selectType,
+        status: false,
+      };
+
+      AddData(data);
+      resetForm();
+    };
 
     return (
       <MainForm
@@ -96,7 +119,7 @@ const FormikContainer = () => {
                 control="radio"
                 label="Buy / Sell"
                 name="buySell"
-                options={radioOptions}
+                options={buySellOptions}
               />
             <FormGroup>
               <FormikControl
@@ -162,7 +185,7 @@ const FormikContainer = () => {
               control="checkbox"
               label="Select Books"
               name="books"
-              options={checkboxOptions}
+              options={bookOptions}
             />
             <PriceGroup>
               <Label htmlFor="price">Total Amount</Label>

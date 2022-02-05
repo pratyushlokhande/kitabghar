@@ -26,7 +26,7 @@ const HomeSection = () => {
             exit={{ opacity: 0 }}
             transition={{ ...transition, delay: isPresent ? 0.6 : 0 }}
           >
-            PAY LESS STUDY MORE
+            AB BANAO APNA FUTURE...WITH
           </motion.h1>
           <Title>KITABGHAR</Title>
           <motion.h2
@@ -35,7 +35,7 @@ const HomeSection = () => {
             exit={{ opacity: 0 }}
             transition={{ ...transition, delay: isPresent ? 0.6 : 0 }}
           >
-            अब पढ़ाई, सिर्फ 20% में
+            PAY LESS STUDY MORE
           </motion.h2>
         </TitleContainer>
         <ButtonContainer

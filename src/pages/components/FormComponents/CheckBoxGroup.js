@@ -79,17 +79,13 @@ const CheckboxField = styled(motion.input)`
 `;
 
 const CheckboxWrap = styled(motion.div)`
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
 `;
 
 const CheckboxLabel = styled(motion.label)`
@@ -98,8 +94,7 @@ const CheckboxLabel = styled(motion.label)`
   align-items: center;
   font-size: 1.5rem;
   gap: 0.5rem;
-  width: 8rem;
-  height: 3rem;
+  padding: 0.5rem;
   background-color: #ffffff;
   color: #f08d0c;
   border: 1px solid #f08d0c;
