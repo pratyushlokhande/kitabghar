@@ -25,6 +25,10 @@ const FormHomeContainer = styled(motion.div)`
   justify-content: center;
   align-items: center;
   gap: 3rem;
+
+  @media screen and (max-width: 768px) {
+    height: 40vh;
+  }
 `;
 
 const TitleContainer = styled(motion.div)`
@@ -33,6 +37,7 @@ const TitleContainer = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2.5rem;
 
   h1 {
     font-size: 2rem;

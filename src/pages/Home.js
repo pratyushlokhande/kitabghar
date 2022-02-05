@@ -4,7 +4,7 @@ import React from 'react';
 import { motion, AnimateSharedLayout } from "framer-motion";
 
 // Import Components
-import Nav from './components/Nav';
+// import Nav from './components/Nav';
 import HomeSection from './components/HomeSection';
 import AdsSection from './components/AdsSection';
 import Collections from './components/Collections';
@@ -15,13 +15,13 @@ import Trending from './components/Trending';
 import Availablity from './components/Availablity';
 import Testimonials from './components/Testimonials';
 import Faq from './components/Faq';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 
 const Home = () => {
     return (
         <AnimateSharedLayout>
             <motion.div layout>
-                <Nav />
+                {/* <Nav /> */}
                 <HomeSection />
                 <AdsSection />
                 <Collections />
@@ -32,7 +32,7 @@ const Home = () => {
                 <Availablity />
                 <Testimonials />
                 <Faq />
-                <Footer />
+                {/* <Footer /> */}
             </motion.div>
         </AnimateSharedLayout>
     );

@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 
 // Formik Field
 import { Field, ErrorMessage } from "formik";
-import TextError from './TextError';
 
 
 const Select = (props) => {

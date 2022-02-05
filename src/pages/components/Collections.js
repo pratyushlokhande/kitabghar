@@ -23,7 +23,10 @@ const Collections = () => {
           <h3>The world is in front of you, all you have to do is reach it</h3>
         </TitleContainer>
 
-        <AllCollections spaceBetween={16} slidesPerView={window.innerWidth > 768 ? 4 : 1}>
+        <AllCollections
+          spaceBetween={16}
+          slidesPerView={window.innerWidth > 768 ? 4 : 1}
+        >
           {getCollections().map((collection) => (
             <SwiperSlide>
               <CollectionItem

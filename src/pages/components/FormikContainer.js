@@ -9,8 +9,14 @@ import { motion } from "framer-motion";
 // Formik Control
 import FormikControl from './FormikControl';
 
+// Router
+import { useLocation } from 'react-router-dom';
+
 
 const FormikContainer = () => {
+
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
 
     const radioOptions = [
       { key: "Buy", value: "buy" },
@@ -34,10 +40,15 @@ const FormikContainer = () => {
         { key: 'Option 1', value: 'coption1' },
         { key: 'Option 2', value: 'coption2' },
         { key: 'Option 3', value: 'coption3' },
+        { key: 'Option 4', value: 'coption4' },
+        { key: 'Option 5', value: 'coption5' },
+        { key: 'Option 6', value: 'coption6' },
+        { key: 'Option 7', value: 'coption7' },
+        { key: 'Option 8', value: 'coption8' },
     ];
 
     const initialValues = {
-        buySell: '',
+        buySell: from,
         name: '',
         phone: '',
         house: '',
@@ -69,7 +80,7 @@ const FormikContainer = () => {
       city: Yup.string().required("Required"),
       selectGrade: Yup.string().required("Required"),
       selectType: Yup.string().required("Required"),
-      books: Yup.array().required("Select atleast one Book"),
+      books: Yup.array().min(1,"Select atleast one Book"),
     });
     const onSubmit = values => console.log(values);
 
@@ -183,6 +194,10 @@ const FormGroup = styled(motion.div)`
     gap: 1rem;
     align-items: end;
     margin-top: 3rem;
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 const PriceGroup = styled(motion.div)`

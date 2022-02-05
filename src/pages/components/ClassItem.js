@@ -5,9 +5,9 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 
-const ClassItem = ({id, grade, name, color}) => {
+const ClassItem = ({id, grade, name, color, key}) => {
     return (
-        <ClassItemContainer style={{ backgroundColor: color }} key={id}>
+        <ClassItemContainer style={{ backgroundColor: color }} key={key}>
             <h3>{name}</h3>
             <h1>{grade}</h1>
         </ClassItemContainer>

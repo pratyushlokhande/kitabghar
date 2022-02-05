@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 
 // Formik Field
 import { Field, ErrorMessage } from "formik";
-import TextError from './TextError';
 
 // Icons
 import { IoBagAddOutline, IoBagRemoveOutline } from "react-icons/io5";

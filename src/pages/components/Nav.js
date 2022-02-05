@@ -4,10 +4,12 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+import {Link} from "react-router-dom";
+
 const Nav = () => {
     return (
         <NavContainer layout>
-            <NavLogo><span>KITABGHAR</span>.in</NavLogo>
+            <NavLogo to={"/"}><span>KITABGHAR</span>.in</NavLogo>
         </NavContainer>
     )
 }
@@ -27,11 +29,12 @@ const NavContainer = styled(motion.div)`
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
 `;
 
-const NavLogo = styled(motion.div)`
+const NavLogo = styled(Link)`
     width: fit-content;
     font-size: 2rem;
     font-weight: 500;
     color: #69d2e7;
+    text-decoration: none;
 
     span {
         color: #f08d0c;

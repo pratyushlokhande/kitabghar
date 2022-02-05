@@ -20,6 +20,10 @@ const FormContainer = () => {
 const FormArea = styled(motion.div)`
     width: 100%;
     padding: 0 10rem;
+
+    @media screen and (max-width: 768px) {
+        padding: 0 1rem;
+    }
 `;
 
 

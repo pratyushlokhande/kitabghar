@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 
 // Formik Field
 import { Field, ErrorMessage } from "formik";
-import TextError from "./TextError";
 
 // Icons
 import { IoCheckmarkSharp, IoAddSharp } from "react-icons/io5";
@@ -46,12 +45,15 @@ const CheckBoxGroup = (props) => {
           );
         }}
       </Field>
-      <ErrorMessage name={name} component={TextError} />
+      <ErrorMessage name={name}>
+        {(msg) => <ErrorDiv>{msg}</ErrorDiv>}
+      </ErrorMessage>
     </CheckboxContainer>
   );
 };
 
 const CheckboxContainer = styled(motion.div)`
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -77,12 +79,17 @@ const CheckboxField = styled(motion.input)`
 `;
 
 const CheckboxWrap = styled(motion.div)`
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const CheckboxLabel = styled(motion.label)`
@@ -101,6 +108,14 @@ const CheckboxLabel = styled(motion.label)`
   &:hover {
     background-color: #f6bd605e;
   }
+`;
+
+const ErrorDiv = styled(motion.div)`
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
 `;
 
 export default CheckBoxGroup;

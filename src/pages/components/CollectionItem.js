@@ -4,9 +4,9 @@ import React from "react";
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const CollectionItem = ({ id, title, description, color, icon}) => {
+const CollectionItem = ({ id, title, description, color, icon, key}) => {
     return (
-        <CollectionItemContainer style={{backgroundColor: color}}>
+        <CollectionItemContainer style={{backgroundColor: color}} key={key}>
             <ItemHeader>
                 <h4>{id}</h4>
                 <h3>{title}</h3>
