@@ -7,11 +7,11 @@ import { motion } from "framer-motion";
 // import Form Components
 import FormikContainer from "./FormikContainer";
 
-const FormContainer = () => {
+const FormContainer = ({modal, setModal}) => {
 
     return (
       <FormArea layout>
-        <FormikContainer />
+        <FormikContainer modal={modal} setModal={setModal} />
       </FormArea>
     );
 

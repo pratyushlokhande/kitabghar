@@ -13,7 +13,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 
-const Subscribe = () => {
+const Subscribe = ({modal, setModal}) => {
   
     const emailRegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     
@@ -30,7 +30,7 @@ const Subscribe = () => {
         ...values,
       }
 
-      AddData(entries);
+      AddData(entries, modal, setModal);
       resetForm();
     }
 
@@ -39,7 +39,7 @@ const Subscribe = () => {
       <SubscribeContainer>
         <TitleContainer>
           <h1>Subscribe</h1>
-          <h3>Be the first one to get informed about new arrivals.</h3>
+          <h3>stay updated about new arrivals</h3>
         </TitleContainer>
         <Formik
           initialValues={{

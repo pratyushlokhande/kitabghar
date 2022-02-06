@@ -8,22 +8,20 @@ import { motion } from "framer-motion";
 import Subscribe from './Subscribe';
 import FooterContent from './FooterContent';
 
-const Footer = () => {
-
-    return (
-      <FooterContainer>
-        <Subscribe />
-        <FooterContent />
-        <FooterFooter>
-          <Bar></Bar>
-          <p>
-            Copyright © 2022 <span>Pustakshala</span>.<br /> All rights reserved.
-          </p>
-        </FooterFooter>
-      </FooterContainer>
-    );
-
-}
+const Footer = ({ modal, setModal }) => {
+  return (
+    <FooterContainer layout>
+      <Subscribe modal={modal} setModal={setModal} />
+      <FooterContent />
+      <FooterFooter>
+        <Bar></Bar>
+        <p>
+          Copyright © 2022 <span>Pustakshala</span>.<br /> All rights reserved.
+        </p>
+      </FooterFooter>
+    </FooterContainer>
+  );
+};
 
 const FooterContainer = styled(motion.div)`
   width: 100%;

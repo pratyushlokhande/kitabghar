@@ -15,7 +15,7 @@ import { useLocation } from 'react-router-dom';
 // Firebase
 import AddData from "../../firebase/firebase-addData";
 
-const FormikContainer = () => {
+const FormikContainer = ({modal, setModal}) => {
 
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
@@ -103,7 +103,7 @@ const FormikContainer = () => {
         status: false,
       };
 
-      AddData(data);
+      AddData(data, modal, setModal);
       resetForm();
     };
 

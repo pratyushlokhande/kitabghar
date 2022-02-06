@@ -8,17 +8,15 @@ import FormHome from "./components/FormHome";
 import FormContainer from "./components/FormContainer";
 
 
-const Form = () => {
+const Form = ({modal, setModal}) => {
 
     // const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] };
 
     return (
       <AnimateSharedLayout>
-        <motion.div
-          layout
-        >
+        <motion.div layout>
           <FormHome />
-          <FormContainer />
+          <FormContainer modal={modal} setModal={setModal} />
         </motion.div>
       </AnimateSharedLayout>
     );

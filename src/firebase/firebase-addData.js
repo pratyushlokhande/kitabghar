@@ -3,7 +3,7 @@ import { db } from "./firebase-config";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 
-const AddData = ({database, ...entries}) => {
+const AddData = ({database, ...entries}, modal, setModal) => {
     const databaseRef = collection(db, database);
 
     const addData = async () => {
@@ -16,10 +16,10 @@ const AddData = ({database, ...entries}) => {
 
     const response = addData();
     
-    response.then((s) => {
-        alert("Submission Successfull!");
+    response.then(() => {
+        setModal(!modal);
     }).catch((e) => {
-        alert("Something went wrong");
+        alert("Something went wrong" + e);
     });
 }
 
