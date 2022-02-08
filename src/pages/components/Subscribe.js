@@ -36,7 +36,7 @@ const Subscribe = ({modal, setModal}) => {
 
 
     return (
-      <SubscribeContainer>
+      <SubscribeContainer layout>
         <TitleContainer>
           <h1>Subscribe</h1>
           <h3>stay updated about new arrivals</h3>

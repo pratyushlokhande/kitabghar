@@ -1,6 +1,7 @@
 import React from 'react';
 
 // Style and Animation
+import styled from 'styled-components';
 import { motion, AnimateSharedLayout } from "framer-motion";
 
 // Import Components
@@ -19,7 +20,7 @@ const Home = () => {
 
     return (
         <AnimateSharedLayout>
-            <motion.div layout>
+            <HomeContainer layout>
                 <HomeSection />
                 <AdsSection />
                 <Collections />
@@ -30,9 +31,14 @@ const Home = () => {
                 <Availablity />
                 <Testimonials />
                 <Faq />
-            </motion.div>
+            </HomeContainer>
         </AnimateSharedLayout>
     );
 }
+
+const HomeContainer = styled(motion.div)`
+    width: 100%;
+    z-index: 10;
+`;
 
 export default Home;

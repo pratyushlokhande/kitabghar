@@ -4,15 +4,17 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
-    return (
-        <NavContainer layout>
-            <NavLogo to={"/"}><span>KITABGHAR</span>.in</NavLogo>
-        </NavContainer>
-    )
-}
+  return (
+    <NavContainer layout>
+      <NavLogo to={"/"}>
+        <span>KITABGHAR</span>.in
+      </NavLogo>
+    </NavContainer>
+  );
+};
 
 const NavContainer = styled(motion.div)`
   position: fixed;
@@ -30,15 +32,14 @@ const NavContainer = styled(motion.div)`
 `;
 
 const NavLogo = styled(Link)`
-    width: fit-content;
-    font-size: 2rem;
-    font-weight: 500;
-    color: #69d2e7;
-    text-decoration: none;
-
-    span {
-        color: #f08d0c;
-    }
+  width: fit-content;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #69d2e7;
+  text-decoration: none;
+  span {
+    color: #f08d0c;
+  }
 `;
 
 export default Nav;

@@ -1,10 +1,13 @@
 import React from 'react'
-import { Formik, Form } from 'formik';
+import { Formik, Form, FieldArray } from 'formik';
 import * as Yup from 'yup';
 
 // Style and Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
+
+// Icons
+import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 
 // Formik Control
 import FormikControl from './FormikControl';
@@ -16,6 +19,7 @@ import { useLocation } from 'react-router-dom';
 import AddData from "../../firebase/firebase-addData";
 
 const FormikContainer = ({modal, setModal}) => {
+
 
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
@@ -64,6 +68,7 @@ const FormikContainer = ({modal, setModal}) => {
         selectGrade: '',
         selectType: '',
         books: [],
+        customBooks: [''],
         price: 0,
     };
 
@@ -97,6 +102,7 @@ const FormikContainer = ({modal, setModal}) => {
         phone: values.phone,
         address: address,
         books: values.books,
+        cbooks: values.customBooks,
         amount: values.price,
         class: values.selectGrade,
         type: values.selectType,
@@ -187,7 +193,36 @@ const FormikContainer = ({modal, setModal}) => {
               name="books"
               options={bookOptions}
             />
-            <PriceGroup>
+            <CustomBooksGroup>
+              <Label htmlFor="customBooks">Add Custom Books</Label>
+              <FieldArray name="customBooks">
+                {(arrayHelpers) => {
+                  const {push, remove, form } = arrayHelpers;
+                  const {customBooks} = form.values;
+                  return (
+                    <CustomBookEntries>
+                      {customBooks.map((book, index) => (
+                        <CustomBookWrap key={index}>
+                          <FormikControl
+                            control="input"
+                            type="text"
+                            name={`customBooks.${index}`}
+                            placeholder="Enter Book Name"
+                          />
+                          <Button type="button" onClick={() => push("")}>
+                            <FiPlusCircle />
+                          </Button>
+                          { index > 0 && <Button type="button" onClick={() => remove(index)}>
+                            <FiMinusCircle />
+                          </Button>}
+                        </CustomBookWrap>
+                      ))}
+                    </CustomBookEntries>
+                  );
+                }}
+              </FieldArray>
+            </CustomBooksGroup>
+            {/* <PriceGroup>
               <Label htmlFor="price">Total Amount</Label>
               <FormikControl 
                 control="input"
@@ -197,7 +232,7 @@ const FormikContainer = ({modal, setModal}) => {
                 disabled
                 style={{textAlign: "center"}}
               />
-            </PriceGroup>
+            </PriceGroup> */}
             <SubmitButton type="submit">Submit</SubmitButton>
           </Form>
         )}
@@ -223,14 +258,14 @@ const FormGroup = styled(motion.div)`
     }
 `;
 
-const PriceGroup = styled(motion.div)`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-`;
+// const PriceGroup = styled(motion.div)`
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 1rem;
+// `;
 
 const Label = styled(motion.label)`
   font-size: 1.5rem;
@@ -255,6 +290,51 @@ const SubmitButton = styled(motion.button)`
   &:hover {
     color: #f08d0c;
     border: 2px solid #f08d0c;
+  }
+`;
+
+const CustomBooksGroup = styled(motion.div)`
+  width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+`;
+
+const Button = styled(motion.button)`
+  position: relative;
+  border: none;
+  background-color: #f08d0c;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:last-child {
+    background-color: orange;
+  }
+`;
+
+const CustomBookWrap = styled(motion.div)`
+  display: flex;
+  align-items: end;
+`;
+
+const CustomBookEntries = styled(motion.div)`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  input {
+    width: fit-content;
   }
 `;
 

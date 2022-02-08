@@ -13,7 +13,7 @@ import Admin from "./pages/Admin";
 import {  Routes, Route, useLocation } from "react-router-dom";
 
 // Animation
-import {AnimatePresence, AnimateSharedLayout} from 'framer-motion';
+import {AnimatePresence} from 'framer-motion';
 
 function App() {
 
@@ -29,13 +29,13 @@ function App() {
     }
   }, [modal])
   
+  
 
   return (
     <>
       <GlobalStyles />
       <Nav />
       {modal && <Modal modal={modal} setModal={setModal} />}
-        <AnimateSharedLayout>
       <AnimatePresence initial={false} exitBeforeEnter>
         <Routes location={location} key={location.key}>
           <Route exact path="/" element={<Home />} />
@@ -52,7 +52,6 @@ function App() {
         </Routes>
       </AnimatePresence>
       <Footer modal={modal} setModal={setModal} />
-      </AnimateSharedLayout>
     </>
   );
 }
