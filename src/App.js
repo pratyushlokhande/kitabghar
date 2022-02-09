@@ -38,11 +38,6 @@ function App() {
     }
   }, [modal])
   
-  // Get window size
-  const wSize = useWindowSize();
-  useEffect(() => {
-    document.documentElement.style.setProperty("--vh", `${wSize.height / 100}px`);
-  }, [wSize.height]);
   
 
   return (
