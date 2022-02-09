@@ -24,7 +24,11 @@ const FaqItemContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 0 2rem;
+  padding: 0 3rem;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 2rem;
+  }
 
   h3 {
     font-size: 1.5rem;

@@ -9,6 +9,9 @@ import Footer from "./pages/components/Footer";
 import Modal from "./pages/components/Modal";
 import Admin from "./pages/Admin";
 
+// Hooks
+import { useWindowSize } from "./hooks/UseWindowSize";
+
 // Import Router
 import {  Routes, Route, useLocation } from "react-router-dom";
 
@@ -29,6 +32,11 @@ function App() {
     }
   }, [modal])
   
+  // Get window size
+  const wSize = useWindowSize();
+  useEffect(() => {
+    document.documentElement.style.setProperty("--vh", `${wSize.height / 100}px`);
+  }, [wSize.height]);
   
 
   return (

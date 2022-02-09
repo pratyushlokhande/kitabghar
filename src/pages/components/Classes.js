@@ -1,4 +1,7 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+
+// Hooks
+import { useWindowSize } from "../../hooks/UseWindowSize";
 
 // Style and Animation
 import styled from "styled-components";
@@ -18,6 +21,17 @@ import getClasses from "../../data/ClassData";
 
 const Classes = () => {
 
+    const wSize = useWindowSize();
+
+    const [slideCount, setSlideCount] = useState(1);
+
+    useEffect(() => {
+      if(wSize.width > 768) {
+        setSlideCount(5);
+      } else if(wSize.width > 576) {
+        setSlideCount(3);
+      }
+    },[wSize.width])
 
     return (
       <ClassesContainer layout>
@@ -29,7 +43,7 @@ const Classes = () => {
         <AllClasses
           modules={[Autoplay]}
           spaceBetween={16}
-          slidesPerView={window.innerWidth > 768 ? 5 : 1}
+          slidesPerView={slideCount}
           autoplay={{
             delay: 2500,
           }}

@@ -52,6 +52,14 @@ const EntryToggleHeader = styled(motion.div)`
       height: inherit;
       color: #f08d0c;
     }
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+
+      span {
+        width: 2rem;
+      }
+    }
   }
 `;
 
@@ -68,6 +76,10 @@ const ModeContainer = styled(motion.div)`
     color: #ffffff;
     font-size: 1.5rem;
     font-weight: 600;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
 `;
 
 export default EntryToggle;

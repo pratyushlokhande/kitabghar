@@ -72,6 +72,12 @@ const EntryContainer = styled(motion.div)`
             font-size: 1.2rem;
             font-weight: 400;
         }
+
+        @media screen and (max-width: 768px) {
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
     }
   }
 `;

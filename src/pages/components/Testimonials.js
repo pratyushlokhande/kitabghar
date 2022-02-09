@@ -1,5 +1,9 @@
 import React from "react";
 
+// Hooks
+import { useWindowSize } from "../../hooks/UseWindowSize";
+
+
 // Style and Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -18,6 +22,7 @@ import getTestimonials from "../../data/TestimonialData";
 
 const Testimonials = () => {
 
+  const wSize = useWindowSize();
 
   return (
     <TestimonialsContainer layout>
@@ -30,7 +35,7 @@ const Testimonials = () => {
         modules={[Autoplay]}
         speed={300}
         spaceBetween={16}
-        slidesPerView={window.innerWidth > 768 ? 3 : 1}
+        slidesPerView={wSize.width > 768 ? 3 : 1}
         autoplay={{
           delay: 5000,
         }}

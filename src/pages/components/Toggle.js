@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 // Icon
-import { TiArrowDownOutline } from "react-icons/ti";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 const Toggle = ({ id, question, children }) => {
     const [toggle, setToggle] = useState(false);
@@ -13,14 +13,14 @@ const Toggle = ({ id, question, children }) => {
     return (
       <ToggleContainer layout onClick={() => setToggle(!toggle)}>
         <ToggleHeader layout>
+          <div>0{id}.</div>
           <h2>
-            <span>0{id}.</span>
             {question}
           </h2>
-          <TiArrowDownOutline fontSize={"2rem"} color={"#f08d0c"} />
+          { toggle ? <ArrowUp /> : <ArrowDown /> }
         </ToggleHeader>
         {toggle ? children : ""}
-        <ToggleFooter></ToggleFooter>
+        <ToggleFooter />
       </ToggleContainer>
     );
 }
@@ -34,32 +34,55 @@ const ToggleContainer = styled(motion.div)`
 `;
 
 const ToggleHeader = styled(motion.div)`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #ffffff;
-    cursor: pointer;
+  width: 100%;
+  display: grid;
+  /* justify-content: space-between; */
+  grid-template-columns: 3rem auto 3rem;
+  background: #ffffff;
+  cursor: pointer;
 
-    h2 {
-        font-size: 2rem;
-        font-weight: 500;
-        color: #000000;
-        display: flex;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 2rem 1fr 2rem;
+  }
 
-        span {
-          display: block;
-          width: 3rem;
-          height: inherit;
-            color: #f08d0c;
-        }
+  div {
+    display: block;
+    font-size: 2rem;
+    color: #f08d0c;
+
+    @media screen and (max-width: 768px) {
+        font-size: 1.5rem;
     }
+  }
+
+  h2 {
+    position: relative;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #000000;
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 const ToggleFooter = styled(motion.div)`
     width: 100%;
     height: 1px;
     background-color: #f08d0c;
+`;
+
+const ArrowDown = styled(FiChevronDown)`
+  position: relative;
+  margin-left: auto;
+  font-size: 2rem;
+  color: #f08d0c;
+`;
+const ArrowUp = styled(FiChevronUp)`
+  position: relative;
+  margin-left: auto;
+  font-size: 2rem;
+  color: #f08d0c;
 `;
 
 export default Toggle;

@@ -65,6 +65,10 @@ const ServiceContainer = styled(motion.div)`
   @media screen and (max-width: 768px) {
     padding: 0 1rem;
   }
+
+  @media screen and (max-width: 576px) {
+    padding: 0;
+  }
 `;
 
 const TitleContainer = styled(motion.div)`

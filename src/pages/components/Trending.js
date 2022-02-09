@@ -1,12 +1,18 @@
 import React from "react";
 
+// Hooks
+import { useWindowSize } from "../../hooks/UseWindowSize";
+
 // Style and Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
 // Slider
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination,Autoplay } from "swiper";
 import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 // Component
 import Book from "./Book";
@@ -15,12 +21,37 @@ import Book from "./Book";
 import getTrending from "../../data/TrendingData";
 
 const Trending = () => {
+  
+  const wSize = useWindowSize();
+
   const getContainer = (Component) => {
-    if (window.innerWidth > 768) {
+    if (wSize.width > 768) {
       return <NoSwiper>{Component}</NoSwiper>;
+    } else if (wSize.width > 576) {
+      return (
+        <AllBooks
+          modules={[Pagination, Autoplay]}
+          pagination={{ clickable: true }}
+          spaceBetween={16}
+          slidesPerView={2}
+          autoplay={{
+            delay: 3000,
+          }}
+        >
+          {Component}
+        </AllBooks>
+      );
     } else {
       return (
-        <AllBooks spaceBetween={16} slidesPerView={1}>
+        <AllBooks
+          modules={[Pagination, Autoplay]}
+          pagination={{ clickable: true }}
+          spaceBetween={16}
+          slidesPerView={1}
+          autoplay={{
+            delay: 3000,
+          }}
+        >
           {Component}
         </AllBooks>
       );

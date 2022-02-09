@@ -37,9 +37,6 @@ const BookImageContainer = styled(motion.div)`
   position: relative;
   width: 100%;
   aspect-ratio: 3/4;
-  /* background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; */
 
   img {
     width: 100%;
@@ -80,7 +77,7 @@ const BookImageContainer = styled(motion.div)`
 const BookInfoContainer = styled(motion.div)`
     position: absolute;
     left: 0;
-    bottom: 1rem;
+    bottom: 2rem;
     width: 100%;
     text-align: center;
 

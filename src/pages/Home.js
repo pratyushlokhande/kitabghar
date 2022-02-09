@@ -38,7 +38,6 @@ const Home = () => {
 
 const HomeContainer = styled(motion.div)`
     width: 100%;
-    z-index: 10;
 `;
 
 export default Home;

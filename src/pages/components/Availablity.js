@@ -24,7 +24,7 @@ const Availablity = () => {
               </AvailablityHeader>
               <ButtonContainer>
                 <Button>Find Item</Button>
-                <Button>Request Item</Button>
+                <Button>Request</Button>
               </ButtonContainer>
           </AvailablityLeft>
             <AvailablityRight>
@@ -158,7 +158,10 @@ const Button = styled(motion.a)`
   place-items: center;
   font-size: 1.8rem;
   font-weight: 500;
-  text-transform: uppercase;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export default Availablity;

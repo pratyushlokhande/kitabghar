@@ -37,6 +37,10 @@ const AdminContainer = styled(motion.div)`
     position: relative;
     width: 100%;
     padding: 0 10rem;
+
+    @media screen and (max-width: 768px) {
+        padding: 0 1rem;
+    }
 `;
 
 const AdminHeader = styled(motion.div)`
@@ -50,6 +54,7 @@ const AdminHeader = styled(motion.div)`
     color: orange;
     text-shadow: 5px 7px 7px rgba(0, 0, 0, 0.25);
     margin-top: 2.5rem;
+    transform: translateY(2.5rem);
 `;
 
 const AdminBody = styled(motion.div)`

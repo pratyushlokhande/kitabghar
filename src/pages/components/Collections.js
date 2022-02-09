@@ -1,12 +1,18 @@
 import React from "react";
 
+// Hooks
+import { useWindowSize } from "../../hooks/UseWindowSize";
+
 // Style and Animation
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 // Slider
+import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 // Component
 import CollectionItem from './CollectionItem';
@@ -16,6 +22,35 @@ import getCollections from '../../data/CollectionsData';
 
 const Collections = () => {
 
+    const wSize = useWindowSize();
+
+
+    const getContainer = (Component) => {
+      if (wSize.width > 768) {
+        return <NoSwiper>{Component}</NoSwiper>;
+      } else if (wSize.width > 576) {
+        return (
+          <AllCollections
+            modules={[Pagination, Autoplay]}
+            pagination={{ clickable: true }}
+            spaceBetween={16}
+            slidesPerView={2}
+            autoplay={{
+              delay: 3000,
+            }}
+          >
+            {Component}
+          </AllCollections>
+        );
+      } else {
+        return (
+          <AllCollections modules={[Pagination]} pagination={{clickable: true}} spaceBetween={16} slidesPerView={1}>
+            {Component}
+          </AllCollections>
+        );
+      }
+    };
+
     return (
       <CollectionsContainer layout>
         <TitleContainer>
@@ -23,11 +58,12 @@ const Collections = () => {
           <h3>The world is in front of you, all you have to do is reach it</h3>
         </TitleContainer>
 
-        <AllCollections
+        {/* <AllCollections
           spaceBetween={16}
-          slidesPerView={window.innerWidth > 768 ? 4 : 1}
-        >
-          {getCollections().map((collection, index) => (
+          slidesPerView={wSize.width > 768 ? 4 : 1}
+        > */}
+          {getContainer(
+            getCollections().map((collection, index) => (
             <SwiperSlide key={index}>
               <CollectionItem
                 id={collection.id}
@@ -37,8 +73,8 @@ const Collections = () => {
                 icon={collection.icon}
               />
             </SwiperSlide>
-          ))}
-        </AllCollections>
+          )))}
+        {/* </AllCollections> */}
       </CollectionsContainer>
     );
 }
@@ -90,6 +126,13 @@ const TitleContainer = styled(motion.div)`
 
 const AllCollections = styled(Swiper)`
     width: 100%;
+`;
+
+const NoSwiper = styled(motion.div)`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 `;
 
 export default Collections;
