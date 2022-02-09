@@ -40,15 +40,13 @@ const NewArrivals = () => {
       </TitleContainer>
 
       {getContainer(
-          getNewArrivals().map((collection) => (
-          <SwiperSlide>
+          getNewArrivals().map((collection, index) => (
+          <SwiperSlide key={index}>
             <Book
-              id={collection.id}
               tag={collection.tag}
               name={collection.name}
               grade={collection.grade}
               image={collection.image}
-              key={collection.id}
             />
           </SwiperSlide>
         ))

@@ -35,14 +35,12 @@ const Classes = () => {
           }}
           loop={true}
         >
-          {getClasses().map((collection) => (
-            <SwiperSlide>
+          {getClasses().map((collection, index) => (
+            <SwiperSlide key={index}>
               <ClassItem
-                id={collection.id}
                 grade={collection.grade}
                 name={collection.name}
                 color={collection.color}
-                key={collection.id}
               />
             </SwiperSlide>
           ))}

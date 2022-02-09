@@ -27,15 +27,14 @@ const Collections = () => {
           spaceBetween={16}
           slidesPerView={window.innerWidth > 768 ? 4 : 1}
         >
-          {getCollections().map((collection) => (
-            <SwiperSlide>
+          {getCollections().map((collection, index) => (
+            <SwiperSlide key={index}>
               <CollectionItem
                 id={collection.id}
                 title={collection.title}
                 description={collection.description}
                 color={collection.color}
                 icon={collection.icon}
-                key={collection.id}
               />
             </SwiperSlide>
           ))}

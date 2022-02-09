@@ -35,15 +35,13 @@ const Trending = () => {
       </TitleContainer>
 
       {getContainer(
-        getTrending().map((collection) => (
-          <SwiperSlide>
+        getTrending().map((trending, index) => (
+          <SwiperSlide key={index}>
             <Book
-              id={collection.id}
-              tag={collection.tag}
-              name={collection.name}
-              grade={collection.grade}
-              image={collection.image}
-              key={collection.id}
+              tag={trending.tag}
+              name={trending.name}
+              grade={trending.grade}
+              image={trending.image}
             />
           </SwiperSlide>
         ))

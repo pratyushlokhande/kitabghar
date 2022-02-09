@@ -36,15 +36,14 @@ const Testimonials = () => {
         }}
         loop={true}
       >
-        {getTestimonials().map((testimonial) => (
-          <SwiperSlide>
+        {getTestimonials().map((testimonial, index) => (
+          <SwiperSlide key={index}>
             <TestimonialItem
               id={testimonial.id}
               name={testimonial.name}
               title={testimonial.title}
               comment={testimonial.comment}
               image={testimonial.image}
-              key={testimonial.id}
             />
           </SwiperSlide>
         ))}

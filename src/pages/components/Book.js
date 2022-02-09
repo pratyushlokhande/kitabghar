@@ -4,11 +4,16 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+const Book = ({tag, name, grade, image}) => {
 
-const Book = ({id, tag, name, grade, image}) => {
     return (
-      <BookContainer key={id}>
-        <BookImageContainer style={{ backgroundImage: `url(${image})` }}>
+      <BookContainer>
+        <BookImageContainer>
+          <img
+            src={require(`../../assets/book-thumbnail/${image}`)}
+            alt={image}
+          />
+          <div></div>
           <h4>{tag}</h4>
         </BookImageContainer>
         <BookInfoContainer>
@@ -29,25 +34,47 @@ const BookContainer = styled(motion.div)`
 `;
 
 const BookImageContainer = styled(motion.div)`
-    position: relative;
-    width: 100%;
-    aspect-ratio: 3/4;
-    background-size: cover;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  /* background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 
-    h4 {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #ffffff;
-        background-color: #f08d0c;
-        display: grid;
-        place-items: center;
-        padding: 0.2rem;
-    }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgb(0, 0, 0); */
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(243, 243, 255, 0.053658963585434205) 35%,
+      rgba(0, 212, 255, 0) 100%
+    );
+  }
+
+  h4 {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #f08d0c;
+    display: grid;
+    place-items: center;
+    padding: 0.2rem;
+  }
 `;
 
 const BookInfoContainer = styled(motion.div)`

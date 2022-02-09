@@ -4,11 +4,11 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const TestimonialItem = ({ id, name, title, comment, image, key }) => {
+const TestimonialItem = ({ id, name, title, comment, image }) => {
 
 
   return (
-    <TestimonialContainer key={key}>
+    <TestimonialContainer>
       <TestimonialImageContainer>
         <img src={image} alt={name} />
       </TestimonialImageContainer>
