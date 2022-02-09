@@ -9,7 +9,7 @@ const FooterContent = () => {
     return (
         <FooterContentContainer>
             <FooterContentLeft>
-                <h2>PUSTAKSHALA</h2>
+                <h2>KITABGHAR</h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque inventore quisquam aspernatur iure aut exercitationem, necessitatibus suscipit rem accusantium.</p>
             </FooterContentLeft>
             <FooterContentRight>

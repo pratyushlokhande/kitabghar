@@ -16,7 +16,18 @@ const Footer = ({ modal, setModal }) => {
       <FooterFooter>
         <Bar></Bar>
         <p>
-          Copyright © 2022 <span>Pustakshala</span>.<br /> All rights reserved.
+          <span>- Kitabghar -</span>.<br /> Proudly developed and managed by
+          <br />
+          <RefLink
+            href="https://linkedin.com/in/pratyushlokhande"
+            target="_blank"
+          >
+            Pratyush
+          </RefLink>
+          &nbsp; & &nbsp;
+          <RefLink href="https://google.com" target="_blank">
+            Utkarsh
+          </RefLink>
         </p>
       </FooterFooter>
     </FooterContainer>
@@ -57,6 +68,10 @@ const FooterFooter = styled(motion.div)`
         text-transform: uppercase;
     }
   }
+`;
+
+const RefLink = styled(motion.a)`
+  color: #ffffff;
 `;
 
 const Bar = styled(motion.div)`
