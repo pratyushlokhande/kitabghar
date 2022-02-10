@@ -37,7 +37,7 @@ const Classes = () => {
       <ClassesContainer layout>
         <TitleContainer>
           <h1>Grades Covered</h1>
-          <h3>A Building with Four Walls and Tomorrow Inside</h3>
+          <h3>JUST SCROLL, WE'VE COVERED WHAT YOU ARE LOOKING FOR</h3>
         </TitleContainer>
 
         <AllClasses
@@ -70,6 +70,17 @@ const ClassesContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
+  @media screen and (max-width: 1200px) {
+    padding: 0 5rem;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 0 3rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+  }
 
   @media screen and (max-width: 768px) {
     padding: 0 1rem;

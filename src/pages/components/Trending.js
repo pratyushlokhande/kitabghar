@@ -62,7 +62,7 @@ const Trending = () => {
     <TrendingsContainer layout>
       <TitleContainer>
         <h1>Trending</h1>
-        <h3>A Building with Four Walls and Tomorrow Inside</h3>
+        <h3>PEOPLE ARE MAKING THEIR CHOICE, WHAT'S YOUR'S?</h3>
       </TitleContainer>
 
       {getContainer(
@@ -88,6 +88,13 @@ const TrendingsContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
+  @media screen and (max-width: 1200px) {
+    padding: 0 5rem;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 0 3rem;
+  }
 
   @media screen and (max-width: 768px) {
     padding: 0 1rem;

@@ -55,13 +55,8 @@ const Collections = () => {
       <CollectionsContainer layout>
         <TitleContainer>
           <h1>Our Collections</h1>
-          <h3>The world is in front of you, all you have to do is reach it</h3>
+          <h3>Make your choice from a wide gamut we offer</h3>
         </TitleContainer>
-
-        {/* <AllCollections
-          spaceBetween={16}
-          slidesPerView={wSize.width > 768 ? 4 : 1}
-        > */}
           {getContainer(
             getCollections().map((collection, index) => (
             <SwiperSlide key={index}>
@@ -80,16 +75,23 @@ const Collections = () => {
 }
 
 const CollectionsContainer = styled(motion.div)`
-    width: 100%;
-    padding: 0 10rem;
-    margin-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
+  width: 100%;
+  padding: 0 10rem;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 
-    @media screen and (max-width: 768px) {
-      padding: 0 1rem;
-    }
+  @media screen and (max-width: 1200px) {
+    padding: 0 5rem;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 0 3rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `;
 
 const TitleContainer = styled(motion.div)`

@@ -16,25 +16,28 @@ import Availablity from './components/Availablity';
 import Testimonials from './components/Testimonials';
 import Faq from './components/Faq';
 
-const Home = () => {
-
-    return (
-        <AnimateSharedLayout>
-            <HomeContainer layout>
-                <HomeSection />
-                <AdsSection />
-                <Collections />
-                <Classes />
-                <Service />
-                <NewArrivals />
-                <Trending />
-                <Availablity />
-                <Testimonials />
-                <Faq />
-            </HomeContainer>
-        </AnimateSharedLayout>
-    );
-}
+const Home = ({ modal, setModal, setModalMsg }) => {
+  return (
+    <AnimateSharedLayout>
+      <HomeContainer layout>
+        <HomeSection />
+        <AdsSection />
+        <Collections />
+        <Classes />
+        <Service />
+        <NewArrivals />
+        <Trending />
+        <Availablity
+          modal={modal}
+          setModal={setModal}
+          setModalMsg={setModalMsg}
+        />
+        <Testimonials />
+        <Faq />
+      </HomeContainer>
+    </AnimateSharedLayout>
+  );
+};
 
 const HomeContainer = styled(motion.div)`
     width: 100%;

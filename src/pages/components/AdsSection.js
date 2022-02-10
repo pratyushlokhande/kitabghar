@@ -9,13 +9,13 @@ const AdsSection = () => {
       <AdsSectionContainer layout>
         <ImageContainer>
           <img
-            src={require("../../assets/Ads/ad-one.jpg")}
+            src={require("../../assets/Ads/ad-buy.png")}
             alt={"ad-one.jpg"}
           />
         </ImageContainer>
         <ImageContainer>
           <img
-            src={require("../../assets/Ads/ad-one.jpg")}
+            src={require("../../assets/Ads/ad-sell.png")}
             alt={"ad-one.jpg"}
           />
         </ImageContainer>
@@ -24,21 +24,28 @@ const AdsSection = () => {
 }
 
 const AdsSectionContainer = styled(motion.div)`
-    width: 100%;
-    padding: 0 10rem;
-    margin-top: 5rem;
-    display: flex;
-    gap: 1rem;
+  width: 100%;
+  padding: 0 10rem;
+  margin-top: 5rem;
+  display: flex;
+  gap: 1rem;
 
-    @media screen and (max-width: 768px) {
-        padding: 0 1rem;
-        flex-direction: column;
-    }
+  @media screen and (max-width: 1200px) {
+    padding: 0 5rem;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 0 3rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+    flex-direction: column;
+  }
 `;
 
 const ImageContainer = styled(motion.div)`
   flex: 1;
-  /* aspect-ratio: 16/9; */
+
   &:first-child {
     background-color: #ffffff;
   }

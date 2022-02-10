@@ -5,7 +5,9 @@ import React from 'react'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
 
-const Modal = ({modal, setModal}) => {
+const Modal = ({modal, setModal, modalMsg}) => {
+
+    console.log(modalMsg);
 
     const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 
@@ -45,8 +47,7 @@ const Modal = ({modal, setModal}) => {
             <ModalHeader>KITABGHAR</ModalHeader>
             <ModalBody>
               <ModalText>
-                Submission Successfull!
-                <br /> Thanks for filling up the form.
+                {modalMsg}
               </ModalText>
               <ModalAction onClick={toggleModal}>Close</ModalAction>
             </ModalBody>

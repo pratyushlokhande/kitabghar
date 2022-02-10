@@ -8,10 +8,11 @@ import { motion } from "framer-motion";
 import Subscribe from './Subscribe';
 import FooterContent from './FooterContent';
 
-const Footer = ({ modal, setModal }) => {
+const Footer = ({ modal, setModal, setModalMsg }) => {
+
   return (
     <FooterContainer layout>
-      <Subscribe modal={modal} setModal={setModal} />
+      <Subscribe modal={modal} setModal={setModal} setModalMsg={setModalMsg} />
       <FooterContent />
       <FooterFooter>
         <Bar></Bar>
@@ -39,7 +40,14 @@ const FooterContainer = styled(motion.div)`
   padding: 0 10rem;
   margin-top: 15rem;
   background-color: #69d2e7;
-  padding-bottom: 5rem; 
+  padding-bottom: 5rem;
+
+  @media screen and (max-width: 1200px) {
+    padding: 0 5rem;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 0 3rem;
+  }
 
   @media screen and (max-width: 768px) {
     padding: 0 1rem;

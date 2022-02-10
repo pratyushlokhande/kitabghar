@@ -28,7 +28,7 @@ const Testimonials = () => {
     <TestimonialsContainer layout>
       <TitleContainer>
         <h1>Feedbacks</h1>
-        <h3>The world is in front of you, all you have to do is reach it</h3>
+        <h3>Your reviews is what keeps us going</h3>
       </TitleContainer>
 
       <AllTestimonials
@@ -64,6 +64,13 @@ const TestimonialsContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
+  @media screen and (max-width: 1200px) {
+    padding: 0 5rem;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 0 3rem;
+  }
 
   @media screen and (max-width: 768px) {
     padding: 0 1rem;

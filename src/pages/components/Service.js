@@ -62,10 +62,16 @@ const ServiceContainer = styled(motion.div)`
   flex-direction: column;
   gap: 3rem;
 
+  @media screen and (max-width: 1200px) {
+    padding: 0 5rem;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 0 3rem;
+  }
+
   @media screen and (max-width: 768px) {
     padding: 0 1rem;
   }
-
   @media screen and (max-width: 576px) {
     padding: 0;
   }
@@ -107,7 +113,7 @@ const AllServices = styled(motion.div)`
     display: flex;
     gap: 1rem;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 576px) {
         flex-direction: column;
         gap: 0;
     }

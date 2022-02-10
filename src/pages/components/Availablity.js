@@ -4,34 +4,46 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-// Icons
-// import { FaShippingFast } from "react-icons/fa";
-// import { TiShoppingCart, TiThumbsUp } from "react-icons/ti";
 
-const Availablity = () => {
+
+const Availablity = ({ modal, setModal, setModalMsg }) => {
+  const handleFindClick = (e) => {
+    e.preventDefault();
+    setModalMsg("Currently we've very limited supplies.\nPlease drop your request in buy section. We will get back to you soon.");
+    setModal(!modal);
+  };
+  const handleRequestClick = (e) => {
+    e.preventDefault();
+    setModalMsg("Head over to our buy page to request a quote!");
+    setModal(!modal);
+  };
+
   return (
     <AvailablityContainer layout>
       <TitleContainer>
         <h1>Check Availablity</h1>
-        <h3>A Building with Four Walls and Tomorrow Inside</h3>
+        <h3>BECAUSE, WE HAVE BOOKS JUST FOR YOU</h3>
       </TitleContainer>
 
       <AvailablityContent>
-          <AvailablityLeft>
-              <AvailablityHeader>
-                <h2>Find what you are looking for..</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, velit dolorum recusandae quisquam ipsa possimus sapiente incidunt praesentium esse rem.</p>
-              </AvailablityHeader>
-              <ButtonContainer>
-                <Button>Find Item</Button>
-                <Button>Request</Button>
-              </ButtonContainer>
-          </AvailablityLeft>
-            <AvailablityRight>
-                <img src={require('../../assets/basket.png')} alt="basket.png" />
-            </AvailablityRight>
+        <AvailablityLeft>
+          <AvailablityHeader>
+            <h2>Find what you are looking for..</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae,
+              velit dolorum recusandae quisquam ipsa possimus sapiente incidunt
+              praesentium esse rem.
+            </p>
+          </AvailablityHeader>
+          <ButtonContainer>
+            <Button onClick={handleFindClick}>Find</Button>
+            <Button onClick={handleRequestClick}>Request</Button>
+          </ButtonContainer>
+        </AvailablityLeft>
+        <AvailablityRight>
+          <img src={require("../../assets/basket.png")} alt="basket.png" />
+        </AvailablityRight>
       </AvailablityContent>
-      
     </AvailablityContainer>
   );
 };
@@ -44,6 +56,13 @@ const AvailablityContainer = styled(motion.div)`
   flex-direction: column;
   gap: 3rem;
   background-color: #59d5d5;
+
+  @media screen and (max-width: 1200px) {
+    padding: 5rem;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 5rem 3rem;
+  }
 
   @media screen and (max-width: 768px) {
     padding: 5rem 2rem;
@@ -149,15 +168,17 @@ const ButtonContainer = styled(motion.div)`
     gap: 1rem;
 `;
 
-const Button = styled(motion.a)`
+const Button = styled(motion.button)`
   width: 10rem;
   height: 2.5rem;
   background-color: #f08d0c;
   color: #000000;
   display: grid;
   place-items: center;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 500;
+  text-transform: uppercase;
+  border: none;
 
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;

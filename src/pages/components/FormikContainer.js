@@ -18,7 +18,7 @@ import { useLocation } from 'react-router-dom';
 // Firebase
 import AddData from "../../firebase/firebase-addData";
 
-const FormikContainer = ({modal, setModal}) => {
+const FormikContainer = ({modal, setModal, setModalMsg}) => {
 
 
     const location = useLocation();
@@ -109,7 +109,7 @@ const FormikContainer = ({modal, setModal}) => {
         status: false,
       };
 
-      AddData(data, modal, setModal);
+      AddData(data, modal, setModal, setModalMsg);
       resetForm();
     };
 
