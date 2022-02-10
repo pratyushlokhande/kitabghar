@@ -37,6 +37,7 @@ const Trending = () => {
           autoplay={{
             delay: 3000,
           }}
+          loop={true}
         >
           {Component}
         </AllBooks>
@@ -51,6 +52,7 @@ const Trending = () => {
           autoplay={{
             delay: 3000,
           }}
+          loop={true}
         >
           {Component}
         </AllBooks>

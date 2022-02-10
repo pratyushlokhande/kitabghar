@@ -38,13 +38,23 @@ const Collections = () => {
             autoplay={{
               delay: 3000,
             }}
+            loop={true}
           >
             {Component}
           </AllCollections>
         );
       } else {
         return (
-          <AllCollections modules={[Pagination]} pagination={{clickable: true}} spaceBetween={16} slidesPerView={1}>
+          <AllCollections
+            modules={[Pagination, Autoplay]}
+            pagination={{ clickable: true }}
+            spaceBetween={16}
+            slidesPerView={1}
+            autoplay={{
+              delay: 3000,
+            }}
+            loop={true}
+          >
             {Component}
           </AllCollections>
         );

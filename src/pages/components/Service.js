@@ -71,6 +71,7 @@ const ServiceContainer = styled(motion.div)`
 
   @media screen and (max-width: 768px) {
     padding: 0 1rem;
+    gap: 0rem;
   }
   @media screen and (max-width: 576px) {
     padding: 0;

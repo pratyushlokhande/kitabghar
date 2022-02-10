@@ -37,6 +37,7 @@ const NewArrivals = () => {
             autoplay={{
               delay: 3000,
             }}
+            loop={true}
           >
             {Component}
           </AllBooks>
@@ -44,13 +45,14 @@ const NewArrivals = () => {
       } else {
         return (
           <AllBooks
-            modules={[Pagination]}
+            modules={[Pagination, Autoplay]}
             pagination={{ clickable: true }}
             spaceBetween={16}
             slidesPerView={1}
             autoplay={{
               delay: 3000,
             }}
+            loop={true}
           >
             {Component}
           </AllBooks>
