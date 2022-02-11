@@ -20,23 +20,23 @@ const CheckBoxGroup = (props) => {
         {({ field }) => {
           return (
             <CheckboxWrap>
-              {options.map((option) => {
+              {options.map((option, index) => {
                 return (
-                  <React.Fragment key={option.key}>
+                  <React.Fragment key={index}>
                     <CheckboxField
                       type="checkbox"
-                      id={option.value}
+                      id={option.key}
                       {...field}
-                      value={option.value}
-                      checked={field.value.includes(option.value)}
+                      value={option.key}
+                      checked={field.value.includes(option.key)}
                     />
-                    <CheckboxLabel htmlFor={option.value}>
-                      {field.value.includes(option.value) ? (
+                    <CheckboxLabel htmlFor={option.key}>
+                      {field.value.includes(option.key) ? (
                         <IoCheckmarkSharp />
                       ) : (
                         <IoAddSharp />
                       )}
-                      {option.key}
+                      {option.value}
                     </CheckboxLabel>
                   </React.Fragment>
                 );

@@ -7,8 +7,6 @@ import {motion} from 'framer-motion'
 
 const Modal = ({modal, setModal, modalMsg}) => {
 
-    console.log(modalMsg);
-
     const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 
     const toggleModal = (e) => {
