@@ -45,7 +45,7 @@ const FormikContainer = ({ modal, setModal, setModalMsg }) => {
             });
             setBookOptions(allBooks);
           } else {
-            setModalMsg("No data found");
+            setModalMsg("We are currently working on this grade. Please use custom fields to add books.");
             setModal(!modal);
           }
         });
@@ -60,7 +60,9 @@ const FormikContainer = ({ modal, setModal, setModalMsg }) => {
             });
             setBookOptions(res);
           } else {
-            setModalMsg("No data found");
+            setModalMsg(
+              "We are currently working on this grade. Please use custom fields to add books."
+            );
             setModal(!modal);
           }
         });

@@ -12,6 +12,8 @@ import Login from "./pages/Login";
 import {AuthProvider} from "./pages/components/AuthContext";
 import PrivateRoute from "./pages/components/PrivateRoute";
 
+// Loader
+import Loader from "./pages/components/Loader";
 
 // Import Router
 import {  Routes, Route, useLocation } from "react-router-dom";
@@ -27,6 +29,14 @@ function App() {
 
   const [modalMsg, setModalMsg] = useState('');
 
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setOpacity(0);
+    } , 1500);
+  }, [])
+
   useEffect(() => {
     if(modal) {
       document.body.style.overflow = "hidden";
@@ -41,6 +51,7 @@ function App() {
     <>
       <GlobalStyles />
       <Nav />
+      <Loader opacity={opacity} />
       {modal && <Modal modal={modal} setModal={setModal} modalMsg={modalMsg} />}
       <AuthProvider>
         <AnimatePresence initial={false} exitBeforeEnter>

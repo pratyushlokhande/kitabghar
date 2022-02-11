@@ -30,9 +30,7 @@ const Availablity = ({ modal, setModal, setModalMsg }) => {
           <AvailablityHeader>
             <h2>Find what you are looking for..</h2>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae,
-              velit dolorum recusandae quisquam ipsa possimus sapiente incidunt
-              praesentium esse rem.
+              We have a wide range of books in our store. You can find the best choice for you. 
             </p>
           </AvailablityHeader>
           <ButtonContainer>

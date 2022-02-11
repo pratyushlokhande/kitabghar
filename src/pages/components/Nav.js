@@ -14,7 +14,7 @@ const Nav = () => {
     <NavContainer
       layout
       animate={{ height: "5rem" }}
-      transition={{ ...transition, delay: 1 }}
+      transition={{ ...transition, delay: 2 }}
     >
       <NavLogo to={"/"}>
         <span>KITABGHAR</span>.in

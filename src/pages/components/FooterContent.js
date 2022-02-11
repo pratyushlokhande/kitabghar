@@ -7,30 +7,34 @@ import { motion } from "framer-motion";
 const FooterContent = () => {
 
     return (
-        <FooterContentContainer>
-            <FooterContentLeft>
-                <h2>KITABGHAR</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque inventore quisquam aspernatur iure aut exercitationem, necessitatibus suscipit rem accusantium.</p>
-            </FooterContentLeft>
-            <FooterContentRight>
-                <h2>CONTACT US</h2>
-                <ul>
-                    <li>
-                        <h3>Mobile No.</h3>
-                        +91 1234567890
-                    </li>
-                    <li>
-                        <h3>Email</h3>
-                        abcdefgh@gmail.com
-                    </li>
-                    <li>
-                        <h3>Address</h3>
-                        No. 123, ABC Street, XYZ City, ABC State, 12345
-                    </li>
-                </ul>
-            </FooterContentRight>
-        </FooterContentContainer>    
-    )
+      <FooterContentContainer>
+        <FooterContentLeft>
+          <h2>KITABGHAR</h2>
+          <p>
+            KITABGHAR is a e-platform that connects people who want to buy and
+            sell used books. We make sure that books are available to the needy
+            at budget friendly prices
+          </p>
+        </FooterContentLeft>
+        <FooterContentRight>
+          <h2>CONTACT US</h2>
+          <ul>
+            <li>
+              <h3>Mobile No.</h3>
+              +91 1234567890
+            </li>
+            <li>
+              <h3>Email</h3>
+              abcdefgh@gmail.com
+            </li>
+            <li>
+              <h3>Address</h3>
+              No. 123, ABC Street, XYZ City, ABC State, 12345
+            </li>
+          </ul>
+        </FooterContentRight>
+      </FooterContentContainer>
+    );
 
 }
 
